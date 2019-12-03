@@ -1,10 +1,6 @@
 // Your code goes here
 /*Using your index.js file, create 10 unique event listeners. using your creativity to make the Fun Bus site more interactive.
-Using the 10 unique events, find ways to update the DOM in creative ways. For example you could change colors, animate objects, remove objects, etc.
-
-Nest two similar events somewhere in the site and prevent the event propagation properly
-
- Stop the navigation items from refreshing the page by using preventDefault()*/
+Using the 10 unique events, find ways to update the DOM in creative ways. For example you could change colors, animate objects, remove objects, etc.*/
 
  const header = document.querySelector('.logo-heading');
  header.addEventListener("mouseenter", () => {
@@ -72,6 +68,22 @@ Nest two similar events somewhere in the site and prevent the event propagation 
  })
 
 
- 
+// Nest two similar events somewhere in the site and prevent the event propagation properly
+footer.addEventListener('click', () =>{
+    footer.style.background = "palevioletred";
+    
+})
+const copy = document.querySelector('footer p');
+copy.addEventListener('click', (event) => {
+    copy.style.color = "palevioletred";
+    event.stopPropagation();
+    console.log(event);
+})
 
- 
+//  Stop the navigation items from refreshing the page by using preventDefault()
+const deadLinks =  document.querySelectorAll('a');
+nav.forEach((links, i) => {
+   links.addEventListener('click', (event) => {
+    event.preventDefault();
+})
+})
